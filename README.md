@@ -22,14 +22,11 @@ To use Gurobi a license is required, check the website [Gurobi](https://www.guro
 
 
 # Structure
-- `run_experiment.py` is the main file, used to run any experiments. It initializes the main setting of the experiment, calls the chosen algorithm, and writes log files. It takes as argument a file `.json` that is the output of the file `gen_config.py`.
-- `wrapper.py` contains the definition of all algorithms and the method `wrapopt` that runs the main loop of the chosen algorithm. It is called by the file `run_experiment.py`.
-- `my_logger.py` defines all the functions needed to generate the files to store data output by a run. It is called by the file `run_experiment.py`.
-- `total_config.json` allows defining the settings of the experiment and it has to be the argument of the file `gen_config.py`. 
-- `gen_config.py` generates a folder called `config` containing files to run each algorithm with the parameters chosen in `total_config.json` given as an input and a bash script to run experiments with a Slurm job scheduler.
-- `mylib` contains one folder for each algorithm with all the classes and functions needed to run them.
-- `Bayesian-Optimization.zip` contains the cloned repository [Bayesian-Optimization](https://github.com/wangronin/Bayesian-Optimization/tree/KPCA-BO) with little changes to track the CPU time for the algorithms PCA-BO and KPCA-BO.
-- `RDUCB.zip` contains the cloned repository [RDUCB](https://github.com/huawei-noah/HEBO/tree/master/RDUCB) with little changes to track the CPU time for the algorithm RDUCB.
-- `Gpy.zip` and `GpyOpt.zip` contain the modules Gpy and GpyOpt, respectively, with little changes to track the CPU time for the algorithm RDUCB.
-- `skopt.zip` contains the module skopt with little changes to track the CPU time for the algorithm vanilla Bayesian Optimization.
+- `main_random.py` contains the code to run the greedy approach starting from a random sample.
+- `main_sobol.py` contains the code to run the greedy approach starting from a random sample.
+- `main_on_other_alg.py` contains the code to run the greedy approach starting from a sample of evaluations loaded from a pre-existed txt file.
+- `main_Gurobi.py` contains the code to define and solve the MILP problem with Gurobi. 
+- `Run_random_sobol.sh` is a Slurm job script for the Linux cluster environment. There is a loop within the script to run main_random.py or main_sobol.py multiple times with different parameters.
+- `Run_greedy.sh` is a Slurm job script for the Linux cluster environment. There is a loop within the script to run main_on_other_alg.py multiple times with different parameters.
+- `Run_Gurobi.sh` is a Slurm job script for the Linux cluster environment. It loads the Gurobi license and runs main_Gurobi.py.
 - `requirements.txt` contains the list of all the project’s dependencies with the specific version of each dependency.
