@@ -30,3 +30,32 @@ To use Gurobi a license is required, check the website [Gurobi](https://www.guro
 - `Run_greedy.sh` is a Slurm job script for the Linux cluster environment. There is a loop within the script to run main_on_other_alg.py multiple times with different parameters.
 - `Run_Gurobi.sh` is a Slurm job script for the Linux cluster environment. It loads the Gurobi license and runs main_Gurobi.py.
 - `requirements.txt` contains the list of all the project’s dependencies with the specific version of each dependency.
+
+# Execution from source
+## Dependencies to run from source
+
+Running this code from source requires Python 3.7.4, and the libraries given in `requirements.txt` (Warning: preferably use a virtual environment for this specific project, to avoid breaking the dependencies of your other projects). In Ubuntu, installing the dependencies can be done using the following command:
+
+```
+pip install -r requirements.txt
+```
+
+## Run from source
+pppp
+### Execute repetitions in parallel using a cluster
+If a job scheduling system for Linux clusters is available, the batch script can be edited inside the file `gen_config.py`. 
+After choosing the parameters and editing the batch script, a folder called `run_current_date_and_time` containing folders with the result data and the `config` folder will be generated using the following command:
+```
+python gen_config.py total_config.json
+```
+and the jobs can be launched by typing the last command line that will appear as screen output.
+### Execute a single run
+Here, there is no need to adjust the settings to generate the batch script editing the file `gen_config.py`. Therefore, after choosing the parameters the folder called `run_current_date_and_time` containing the folders with the result data, and the `config` folder will be generated using the following command:
+```
+python gen_config.py total_config.json
+```
+then, move to the folder `run_current_date_and_time` typing the first half of the last command line that will appear as screen output (the part before &&).
+A single run with a specific number of seeds (till reps-1) can be executed using the following command:
+```
+python ../run_experiment.py config/number_of_seeds.json
+```
