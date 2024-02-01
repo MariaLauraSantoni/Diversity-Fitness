@@ -63,9 +63,7 @@ pip install -r requirements.txt
   python main_Gurobi.py
   ```
 ### Execute repetitions in parallel using a cluster
-If a job scheduling system for Linux clusters is available, the batch script can be edited inside the file `gen_config.py`. 
-After choosing the parameters and editing the batch script, a folder called `run_current_date_and_time` containing folders with the result data and the `config` folder will be generated using the following command: 
-```
-python gen_config.py total_config.json
-```
-and the jobs can be launched by typing the last command line that will appear as screen output.
+If a job scheduling system for Linux clusters is available, the batch scripts can be edited and executed. 
+- `Run_random_sobol.sh`: Change the settings to run (function, instance, dimension, initial_size, best_size, lb, ub, iterations. Change the number of independent runs to do (if  `main_sobol.py` only 1 run should be done since it is deterministic). Put `main_random.py` or `main_sobol.py` in line 36. Output files: a folder my_results_function containing a folder for each run (run_1, run_2...) with the respective output files from `main_random.py` or `main_sobol.py`.
+- `Run_greedy.sh`:
+- `Run_Gurobi.sh`:
