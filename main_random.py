@@ -44,7 +44,7 @@ def quality_diversity(function, instance, dimension, initial_size, size_best, lb
     # Opzionalmente, puoi specificare il delimiter per separare le colonne (nel caso sopra, ho usato il tab '\t')
     # e un'intestazione per le colonne. I commenti sono impostati su '' per evitare commenti nel file.
     # Apre un file in modalità scrittura
-    #with open('distances.txt', 'w') as file:
+    with open('distances.txt', 'w') as file:
     # Calcola la distanza euclidea tra ogni coppia di punti e scrivi sul file
         for i in range(10000):
             for j in range(10000):
