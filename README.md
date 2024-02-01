@@ -64,6 +64,14 @@ pip install -r requirements.txt
   ```
 ### Execute repetitions in parallel using a cluster
 If a job scheduling system for Linux clusters is available, the batch scripts can be edited and executed. 
-- `Run_random_sobol.sh`: Change the settings to run (function, instance, dimension, initial_size, best_size, lb, ub, iterations. Change the number of independent runs to do (if  `main_sobol.py` only 1 run should be done since it is deterministic). Put `main_random.py` or `main_sobol.py` in line 36. Output files: a folder my_results_function containing a folder for each run (run_1, run_2...) with the respective output files from `main_random.py` or `main_sobol.py`.
-- `Run_greedy.sh`:
+- `Run_random_sobol.sh`: Change the settings to run (function, instance, dimension, initial_size, best_size, lb, ub, iterations). Change the number of independent runs to do (if  `main_sobol.py` only 1 run should be done since it is deterministic). Put `main_random.py` or `main_sobol.py` in line 36. Output files: a folder my_results_function containing a folder for each run (run_1, run_2...) with the respective output files from `main_random.py` or `main_sobol.py`.
+  Execute the script and start the jobs using the following command:
+  ```
+  sbatch Run_random_sobol.sh
+  ```
+- `Run_greedy.sh`: Before executing the job script store the different histories of the chosen algorithm inside a folder results_function containing folders named run_number_of_run (e.g. run_1) with the input file for main_on_other_alg.py. Change the settings to run (function, instance, dimension, initial_size, best_size, lb, ub, iterations). Change lines 40-49, and 52 according to the dimension of the problem in `main_on_other_alg.py`. Output files: a folder my_results_function containing a folder for each run (run_1, run_2...) with the respective output files from `main_on_other_alg.py`.
+  Execute the script and start the jobs using the following command:
+  ```
+  sbatch Run_greedy.sh
+  ```
 - `Run_Gurobi.sh`:
