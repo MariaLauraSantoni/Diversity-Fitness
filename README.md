@@ -57,21 +57,11 @@ pip install -r requirements.txt
   ```
   python main_on_other_alg.py
   ```
-- `main_Gurobi.py`: 
+- `main_Gurobi.py`: Input files: inp1_inp2_inp3_inp4_inp5_inp6_inp7_inp8_sample_values.txt and distances.txt generated from `main_random.py`. Change lines 6 (with the correct inp1_inp2_inp3_inp4_inp5_inp6_inp7_inp8_sample_values.txt) and line 54 (with the name of the output file, not imposed choice here). Change line 24 with the distance you want to impose. Output files:
 ### Execute repetitions in parallel using a cluster
 If a job scheduling system for Linux clusters is available, the batch script can be edited inside the file `gen_config.py`. 
-After choosing the parameters and editing the batch script, a folder called `run_current_date_and_time` containing folders with the result data and the `config` folder will be generated using the following command:
+After choosing the parameters and editing the batch script, a folder called `run_current_date_and_time` containing folders with the result data and the `config` folder will be generated using the following command: 
 ```
 python gen_config.py total_config.json
 ```
 and the jobs can be launched by typing the last command line that will appear as screen output.
-### Execute a single run
-Here, there is no need to adjust the settings to generate the batch script editing the file `gen_config.py`. Therefore, after choosing the parameters the folder called `run_current_date_and_time` containing the folders with the result data, and the `config` folder will be generated using the following command:
-```
-python gen_config.py total_config.json
-```
-then, move to the folder `run_current_date_and_time` typing the first half of the last command line that will appear as screen output (the part before &&).
-A single run with a specific number of seeds (till reps-1) can be executed using the following command:
-```
-python ../run_experiment.py config/number_of_seeds.json
-```
