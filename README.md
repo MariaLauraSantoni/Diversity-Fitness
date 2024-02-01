@@ -53,6 +53,10 @@ pip install -r requirements.txt
   python main_sobol.py
   ```
 - `main_on_other_alg.py`: Input files: inp1_output.txt (the history of the chosen algorithm, two columns containing the fitness values and the points respectively. Change lines 40-49, and 52 according to the dimension of the problem. Comment lines 177-184, uncomment lines 186-193 and insert the setting to run the algorithm with (inp1 = a function from 1 to 24, inp2 = instance of the function, inp3 = dimension of the problem, inp4 = initial size (T), inp5 = batch size (k), inp6 = lower bound (-5 for the BBOB functions), inp7 = upper bound (5 for the BBOB functions), inp8 = iterations (M)). Output files: inp1_my_best_batch.txt (the best batch of points selected at each iteration of the greedy algorithm). inp1_my_inp2_inp3_inp4_inp5_inp6_inp7_inp8.txt (two columns containing the minimum distance and the average loss respectively at each iteration of the greedy).
+  A single run with specific settings can be executed using the following command:
+  ```
+  python main_on_other_alg.py
+  ```
 - `main_Gurobi.py`: 
 ### Execute repetitions in parallel using a cluster
 If a job scheduling system for Linux clusters is available, the batch script can be edited inside the file `gen_config.py`. 
