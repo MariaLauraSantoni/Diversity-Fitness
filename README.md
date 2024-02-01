@@ -57,7 +57,11 @@ pip install -r requirements.txt
   ```
   python main_on_other_alg.py
   ```
-- `main_Gurobi.py`: Input files: inp1_inp2_inp3_inp4_inp5_inp6_inp7_inp8_sample_values.txt and distances.txt generated from `main_random.py`. Change lines 6 (with the correct inp1_inp2_inp3_inp4_inp5_inp6_inp7_inp8_sample_values.txt) and line 54 (with the name of the output file, not imposed choice here). Change line 24 with the distance you want to impose. Output files:
+- `main_Gurobi.py`: Input files: inp1_inp2_inp3_inp4_inp5_inp6_inp7_inp8_sample_values.txt and distances.txt generated from `main_random.py`. Change lines 6 (with the correct inp1_inp2_inp3_inp4_inp5_inp6_inp7_inp8_sample_values.txt) and line 54 (with the name of the output file (.txt), not imposed choice here). Change line 24 with the distance you want to impose. Output files: chosen_name.txt (Optimal value of the problem, Optimal solution, Optimal weights, optimal indices of the points stored in inp1_inp2_inp3_inp4_inp5_inp6_inp7_inp8_sample_values.txt (index +2= corresponding points in inp1_inp2_inp3_inp4_inp5_inp6_inp7_inp8_sample_values.txt).
+  A single run with specific settings can be executed using the following command:
+  ```
+  python main_Gurobi.py
+  ```
 ### Execute repetitions in parallel using a cluster
 If a job scheduling system for Linux clusters is available, the batch script can be edited inside the file `gen_config.py`. 
 After choosing the parameters and editing the batch script, a folder called `run_current_date_and_time` containing folders with the result data and the `config` folder will be generated using the following command: 
